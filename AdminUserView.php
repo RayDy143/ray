@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+
+<?php
+    session_start();
+    ob_start();
+    if(!isset($_SESSION['UserID'])){
+        header("location:index.php");
+    }else if($_SESSION['UserType']!="Admin"){
+        header("location:index.php");
+    }
+ ?>
+ <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
@@ -11,13 +21,18 @@
         <div class="side-nav">
             <a href="#" class="text-white text-bold brand-text text-center">ADMINISTRATOR</a>
             <a href="#" class="text-center side-nav-btn text-black">Dashboard</a>
-            <a href="#" class="text-center side-nav-btn text-black">Products</a>
+            <a href="AdminProductView.php" class="text-center side-nav-btn text-black">Products</a>
             <a href="#" class="text-center side-nav-btn active text-black">Users</a>
         </div>
         <div class="content">
-            <div class="nav">
-                <a href="#" class="text-white nav-btn">Profile</a>
-                <a href="#" class="text-white nav-btn">Logout</a>
+            <!-- <div class="nav">
+                <a href="EditProfilePage.php" class="text-white nav-btn">Profile</a>
+                <a href="functions/Logout.php" class="text-white nav-btn">Logout</a>
+            </div> -->
+            <div class="topnav" id="myTopnav">
+                <a href="functions/Logout.php">Logout</a>
+                <a href="EditProfilePage.php">Profile</a>
+              </a>
             </div>
             <div class="page-content">
                 <div class="row">
@@ -39,13 +54,8 @@
                         </thead>
                         <tbody>
                             <?php
-                                $servername="localhost";
-                                $username="root";
-                                $password="";
-                                $dbname="ray";
-
-                                $conn= new mysqli($servername,$username,$password,$dbname);
-                                $sql="SELECT * FROM user";
+                                require 'functions/dbconfig.php';
+                                $sql="SELECT * FROM user WHERE NOT UserType='Admin'";
                                 $query=mysqli_query($conn,$sql);
                                 foreach ($query as $row) {
                                     $status="";
@@ -56,7 +66,7 @@
                                             echo '<td>'.$row['Firstname'].' '.$row['Lastname'].'</td>';
                                             echo '<td>'.$row['UserType'].'</td>';
                                             echo '<td class="green">Active</td>';
-                                            echo '<td><a class="pink btn text-white" href="Deactivate.php?id='.$row['UserID'].'">Deactivate</a></td>';
+                                            echo '<td><a class="pink btn text-white" href="functions/Deactivate.php?id='.$row['UserID'].'">Deactivate</a></td>';
                                         echo '</tr>';
                                     }else{
                                         echo '<tr>';
@@ -65,7 +75,7 @@
                                             echo '<td>'.$row['Firstname'].' '.$row['Lastname'].'</td>';
                                             echo '<td>'.$row['UserType'].'</td>';
                                             echo '<td class="pink">Not Active</td>';
-                                            echo '<td><a class="green btn text-white" href="Activate.php?id='.$row['UserID'].'">Activate</a></td>';
+                                            echo '<td><a class="green btn text-white" href="functions/Activate.php?id='.$row['UserID'].'">Activate</a></td>';
                                         echo '</tr>';
                                     }
                                 }

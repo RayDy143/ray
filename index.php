@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(isset($_SESSION['UserID'])){
+        if($_SESSION['UserType']=="Admin"){
+            header("location:AdminUserView.php");
+        }else{
+            header("location:CustomerProductViewPage.php");
+        }
+    }
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -13,7 +23,7 @@
         </header>
         <main>
             <div class="login-box center">
-                <form action="Login.php" method="post">
+                <form action="functions/Login.php" method="post">
                     <h2 class="text-white text-center">LOGIN ACCOUNT</h1>
                     <div class="row">
                         <input type="text" class="center" placeholder="Username" name="Username"/>

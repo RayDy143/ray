@@ -1,50 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=width-device,initial-scale=1.0">
-        <link rel="stylesheet" href="css/mystyle.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/mystyle.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
 
-        <title>Admin Layout</title>
-    </head>
-    <body>
-        <div class="s-layout">
-            <!-- Sidebar -->
-            <div class="s-layout__sidebar">
-              <a class="s-sidebar__trigger" href="#0">
-                 <i class="fa fa-bars"></i>
-              </a>
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #7bb4d3;
+  overflow-x: hidden;
+}
 
-              <nav class="s-sidebar__nav">
-                 <ul>
-                    <li>
-                       <a class="s-sidebar__nav-link" href="#0">
-                          <i class="fa fa-home"></i><em>Home</em>
-                       </a>
-                    </li>
-                    <li>
-                       <a class="s-sidebar__nav-link" href="#0">
-                         <i class="fa fa-user"></i><em>My Profile</em>
-                       </a>
-                    </li>
-                    <li>
-                       <a class="s-sidebar__nav-link" href="#0">
-                          <i class="fa fa-camera"></i><em>Camera</em>
-                       </a>
-                    </li>
-                 </ul>
-              </nav>
-            </div>
+.sidenav a {
+  text-decoration: none;
+  font-size: 17px;
+  padding: 14px 16px;
+  display: block;
+  text-align: center;
+}
 
-            <!-- Content -->
-            <main class="s-layout__content">
-                <div class="topnav" id="myTopnav">
-                    <a href="functions/Logout.php">Logout</a>
-                    <a href="EditProfilePage.php">Profile</a>
-                  </a>
-                </div>
-            </main>
-        </div>
-    </body>
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#" class="text-bold text-white" style="background-color:#0c618f;">ADMINISTRATOR</a>
+  <a href="#services" class="text-white">Dashboard</a>
+  <a href="#clients" class="text-white">Products</a>
+  <a href="#clients" class="text-white">Users</a>
+</div>
+<div class="topnav" id="myTopnav">
+    <a href="functions/Logout.php">Logout</a>
+    <a href="EditProfilePage.php">Profile</a>
+  </a>
+</div>
+<div class="main">
+
+  <h2>Sidebar</h2>
+  <p>This sidebar is of full height (100%) and always shown.</p>
+  <p>Scroll down the page to see the result.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
+
+</body>
 </html>

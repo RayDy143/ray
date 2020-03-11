@@ -1,4 +1,11 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['UserID'])){
+        header("location:index.php");
+    }else if($_SESSION['UserType']!="Admin"){
+        header("location:index.php");
+    }
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -37,7 +44,7 @@
                         <input type="text" class="center" value="<?php echo $_GET['description']; ?>" placeholder="Description" name="Description"/>
                     </div>
                     <button type="submit" class="btn green text-white center" name="btnSubmit">UPDATE</button>
-                    <button type="button" onclick="window.location='AdminProductView.php'" class="btn pink text-white center">CANCEL</button>
+                    <button type="button" onclick="window.location='Views/Admin/product_view.php'" class="btn pink text-white center">CANCEL</button>
                 </form>
             </div>
         </main>

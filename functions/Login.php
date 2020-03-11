@@ -8,7 +8,8 @@
         $password=$_POST['Password'];
 
         $result=mysqli_query($conn,"SELECT * FROM user WHERE Username='$username'");
-        $row=mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
+        
         if(empty($username)||empty($password)){
             echo "<script>window.alert('All fields are required!');window.history.back();</script>";
         }else{
@@ -21,7 +22,7 @@
                         $_SESSION['Lastname']=$row['Lastname'];
                         $_SESSION['UserType']=$row['UserType'];
                         $_SESSION['IsActive']=$row['IsActive'];
-                        echo "<script>window.alert('Hello Admin');window.location='../AdminUserView.php';</script>";
+                        echo "<script>window.alert('Hello Admin');window.location='../Views/Admin/product_view.php';</script>";
                     }else{
                         echo "<script>window.alert('Hello Admin! Your Account is not Active');window.history.back();</script>";
                     }
@@ -33,7 +34,7 @@
                         $_SESSION['Lastname']=$row['Lastname'];
                         $_SESSION['UserType']=$row['UserType'];
                         $_SESSION['IsActive']=$row['IsActive'];
-                        echo "<script>window.alert('Hello Customer!');window.location='../CustomerProductViewPage.php';</script>";
+                        echo "<script>window.alert('Hello Customer!');window.location='../Views/Admin/product_view.php';</script>";
                     }else{
                         echo "<script>window.alert('Hello Customer! Your account is not activated.');window.history.back();</script>";
                     }

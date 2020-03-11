@@ -25,6 +25,12 @@
                     <div class="row">
                         <input type="text" class="center" placeholder="Lastname" name="Lastname"/>
                     </div>
+                    <div class="row">
+                        <input type="password" class="center" placeholder="Password" name="Password"/>
+                    </div>
+                    <div class="row">
+                        <input type="password" class="center" placeholder="Re-type Password" name="ConfirmPassword"/>
+                    </div>
                     <button type="submit" class="btn green text-white center" name="btnSubmit">SUBMIT</button>
                     <button type="button" onclick="window.location='functions/AdminUserView.php'" class="btn pink text-white center">CANCEL</button>
                 </form>

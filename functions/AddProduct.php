@@ -12,14 +12,10 @@
         }else{
             $result=mysqli_query($conn,"INSERT INTO product values ('','$pname','$quantity','$price','$des')");
             if($result){
-                echo "<script>window.alert('Successfully Added!');window.location='../AdminProductView.php';</script>";
+                echo "<script>window.alert('Successfully Added!');window.location='../Views/Admin/product_view.php';</script>";
             }else{
                 echo "<script>window.alert('Error Occured. Please Contact your system admin!');window.history.back();</script>";
             }
-
         }
-
-
-
     }
  ?>

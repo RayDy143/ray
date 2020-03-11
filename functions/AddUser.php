@@ -5,13 +5,17 @@
         $uname=$_POST['Username'];
         $fname=$_POST['Firstname'];
         $lname=$_POST['Lastname'];
+        $pass=$_POST['Password'];
+        $cpass=$_POST['ConfirmPassword'];
 
         //checking empty fields
-        if(empty($uname)||empty($fname)||empty($lname)){
+        if(empty($uname)||empty($fname)||empty($lname)||empty($pass)||empty($cpass)){
             echo "<script>window.alert('All fields are required');window.history.back();</script>";
+        }else if($pass==$cpass){
+            $result=mysqli_query($conn,"INSERT INTO user (Username,Firstname,Lastname,UserType,Password) VALUES ('$uname','$fname','$lname','Customer','$pass')");
+            echo "<script>window.alert('Successfully Added!');window.location='../Views/Admin/user_view.php';</script>";
         }else{
-            $result=mysqli_query($conn,"INSERT INTO user (Username,Firstname,Lastname,UserType,Password) VALUES ('$uname','$fname','$lname','Customer','$uname')");
-            echo "<script>window.alert('Successfully Added!');window.location='../AdminUserView.php';</script>";
+            echo "<script>window.alert('Password did not match');window.history.back();</script>";
         }
 
     }

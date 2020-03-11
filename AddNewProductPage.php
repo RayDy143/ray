@@ -29,7 +29,7 @@
                         <input type="text" class="center" placeholder="Description" name="Description"/>
                     </div>
                     <button type="submit" class="btn green text-white center" name="btnSubmit">ADD</button>
-                    <button type="button" onclick="window.location='functions/AdminProductView.php'" class="btn pink text-white center">CANCEL</button>
+                    <button type="button" onclick="window.location='Views/Admin/product_view.php'" class="btn pink text-white center">CANCEL</button>
                 </form>
             </div>
         </main>

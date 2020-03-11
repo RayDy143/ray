@@ -12,7 +12,7 @@
         }else{
             $query=mysqli_query($conn,"UPDATE product SET ProductName='$pname', Quantity='$quantity',Price='$price',Description='$desc' WHERE ProductID='$pid'");
             if($query){
-                echo "<script>window.alert('Successfully Updated!');window.location='../AdminProductView.php';</script>";
+                echo "<script>window.alert('Successfully Updated!');window.location='../Views/Admin/product_view.php';</script>";
             }else{
                 echo "<script>window.alert('Error Occured. Please Contact your system admin!');window.history.back();</script>";
             }

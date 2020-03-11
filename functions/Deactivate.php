@@ -3,6 +3,6 @@
 
     $id=$_GET['id'];
     $query=mysqli_query($conn,"UPDATE user SET IsActive=0 WHERE UserID='$id'");
-    echo "<script>window.alert('Successfully Deactivated');window.location='../AdminUserView.php';</script>";
+    echo "<script>window.alert('Successfully Deactivated');window.location='../Views/Admin/user_view.php';</script>";
 
  ?>

@@ -10,11 +10,13 @@
 <div class="sidenav">
   <a href="#" class="text-bold text-white" style="background-color:#0c618f;">CUSTOMER</a>
   <a href="#services" class="text-white">Dashboard</a>
-  <a href="#" class="text-white">Products</a>
+  <a href="product_view.php" class="text-white">Products</a>
 </div>
 <div class="topnav" id="myTopnav">
     <a href="../../functions/Logout.php">Logout</a>
-    <a href="../../EditProfilePage.php">Profile</a>
+    <a href="#UpdateProfileModal" rel="modal:open">Profile</a>
+    <a id="btnHamburger" style="float:left;">|||</a>
+
   </a>
 </div>
 <div class="main">
@@ -22,7 +24,7 @@
         <h3 class="left" style="display:inline;">Product View</h3>
     </div>
   <div class="row">
-      <table>
+      <table id="tblProducts" style="width:100%">
           <thead>
               <tr>
                   <th>ID</th>
@@ -33,23 +35,43 @@
               </tr>
           </thead>
           <tbody>
-              <?php
-                  require '../../functions/dbconfig.php';
 
-                  $query=mysqli_query($conn,"SELECT * FROM product");
-
-                  foreach ($query as $row) {
-                      echo '<tr>';
-                          echo '<td>'.$row['ProductID'].'</td>';
-                          echo '<td>'.$row['ProductName'].'</td>';
-                          echo '<td>'.$row['Quantity'].'</td>';
-                          echo '<td> ₱ '.$row['Price'].'</td>';
-                          echo '<td>'.$row['Description'].'</td>';
-                          echo '</tr>';
-                  }
-               ?>
           </tbody>
       </table>
   </div>
+  <?php include '../Layout/updateprofilemodal.php'; ?>
+  <?php include '../Layout/jquerylibrary.php'; ?>
+  <script type="text/javascript">
+      getProducts();
+      function getProducts() {
+          $.ajax({
+              url:'../../Controller/GetProduct.php/',
+              type:'POST',
+              dataType:'json',
+              success:function(response) {
+                  $('#tblProducts').DataTable({
+                      "data": response,
+                      "bPaginate": false,
+                      "bLengthChange": false,
+                      "bFilter": true,
+                      "bInfo": false,
+                      "searching":false,
+                      responsive:true,
+                      "bDestroy": true,
+                      "columns": [
+                        { "data": "ProductID" },
+                        { "data": "ProductName" },
+                        { "data": "Quantity" },
+                        { "mData": function (data, type, dataToSet) {
+                              return "₱ "+data.Price;
+                        }},
+                        { "data": "Description" }
+                      ]
+                  });
+              }
+          });
+      }
+  </script>
+  <?php include '../Layout/updateprofilejquery.php'; ?>
 
   <?php include '../Layout/footer.php'; ?>

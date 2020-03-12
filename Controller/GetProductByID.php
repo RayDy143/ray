@@ -1,5 +1,5 @@
 <?php
-    require '../functions/dbconfig.php';
+    require 'dbconfig.php';
     $id=$_POST['ProductID'];
     $query=mysqli_query($conn,"SELECT * FROM product where ProductID='$id'");
     $data=mysqli_fetch_assoc($query);

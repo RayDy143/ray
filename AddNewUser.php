@@ -14,7 +14,7 @@
         </header>
         <main>
             <div class="login-box center">
-                <form class="" action="functions/AddUser.php" method="post" name="UserForm">
+                <form class="" action="Controller/AddUser.php" method="post" name="UserForm">
                     <h2 class="text-white text-center">ADD NEW USER</h1>
                     <div class="row">
                         <input type="text" class="center" placeholder="Username" name="Username"/>
@@ -32,7 +32,7 @@
                         <input type="password" class="center" placeholder="Re-type Password" name="ConfirmPassword"/>
                     </div>
                     <button type="submit" class="btn green text-white center" name="btnSubmit">SUBMIT</button>
-                    <button type="button" onclick="window.location='functions/AdminUserView.php'" class="btn pink text-white center">CANCEL</button>
+                    <button type="button" onclick="window.location='index.php'" class="btn pink text-white center">CANCEL</button>
                 </form>
             </div>
         </main>

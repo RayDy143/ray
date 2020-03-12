@@ -58,27 +58,27 @@
                         "searching":false,
                         "bDestroy": true,
                         "columns": [
-                          { "data": "UserID" },
-                          { "data": "Username" },
+                          { "data": "tbluser_userid" },
+                          { "data": "tbluser_username" },
                           { "mData": function(data,type,dataToSet){
-                              return data.Firstname+" "+data.Lastname;
+                              return data.tbluser_firstname+" "+data.tbluser_lastname;
                           }},
                           { "mData": function(data,type,dataToSet){
-                              var d=new Date(data.date_added);
+                              var d=new Date(data.tbluser_dateadded);
                               return d.toLocaleDateString();
                           }},
                           { "mData": function (data, type, dataToSet) {
-                                if(data.IsActive==true){
+                                if(data.tbluser_isactive==true){
                                     return "<span class='green'>Active</span>";
                                 }else{
                                     return "<span class='pink'>Not Active</span>";
                                 }
                           }},
                           { "mData": function (data, type, dataToSet) {
-                                if(data.IsActive==true){
-                                    return "<button style='padding:0px;margin:0px;' class='text-white activate pink btn' id='"+data.UserID+"'>Deactivate</button>";
+                                if(data.tbluser_isactive==true){
+                                    return "<button style='padding:0px;margin:0px;' class='text-white activate pink btn' id='"+data.tbluser_userid+"'>Deactivate</button>";
                                 }else{
-                                    return "<button style='padding:0px;margin:0px;' class='text-white deact green btn' id='"+data.UserID+"'>Activate</button>";
+                                    return "<button style='padding:0px;margin:0px;' class='text-white deact green btn' id='"+data.tbluser_userid+"'>Activate</button>";
                                 }
                           }}
                         ]

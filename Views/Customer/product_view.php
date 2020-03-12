@@ -13,7 +13,7 @@
   <a href="product_view.php" class="text-white">Products</a>
 </div>
 <div class="topnav" id="myTopnav">
-    <a href="../../functions/Logout.php">Logout</a>
+    <a href="../../Controller/Logout.php">Logout</a>
     <a href="#UpdateProfileModal" rel="modal:open">Profile</a>
     <a id="btnHamburger" style="float:left;">|||</a>
 
@@ -59,13 +59,13 @@
                       responsive:true,
                       "bDestroy": true,
                       "columns": [
-                        { "data": "ProductID" },
-                        { "data": "ProductName" },
-                        { "data": "Quantity" },
+                        { "data": "tblproduct_productid" },
+                        { "data": "tblproduct_productname" },
+                        { "data": "tblproduct_quantity" },
                         { "mData": function (data, type, dataToSet) {
-                              return "₱ "+data.Price;
+                              return "₱ "+data.tblproduct_price;
                         }},
-                        { "data": "Description" }
+                        { "data": "tblproduct_description" }
                       ]
                   });
               }

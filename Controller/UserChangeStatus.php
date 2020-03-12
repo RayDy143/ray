@@ -6,12 +6,12 @@
     $data["success"] = false;
     $data["action"] = $action;
     if($action=="Activate"){
-        $query=mysqli_query($conn,"UPDATE user SET IsActive=1 WHERE UserID='$id'");
+        $query=mysqli_query($conn,"UPDATE ray_tbluser SET tbluser_isactive=1 WHERE tbluser_userid='$id'");
         if($query){
             $data["success"] = true;
         }
     }else{
-        $query=mysqli_query($conn,"UPDATE user SET IsActive=0 WHERE UserID='$id'");
+        $query=mysqli_query($conn,"UPDATE ray_tbluser SET tbluser_isactive=0 WHERE tbluser_userid='$id'");
 
         if($query){
             $data["success"] = true;

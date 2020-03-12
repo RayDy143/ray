@@ -10,8 +10,9 @@
     if(empty($uname)||empty($fname)||empty($lname)){
         $data["response"]="All fields are required!";
     }else{
-        $query=mysqli_query($conn,"UPDATE user set Username='$uname', Firstname='$fname',Lastname='$lname' WHERE UserID='$id'");
+        $query=mysqli_query($conn,"UPDATE ray_tbluser set tbluser_username='$uname', tbluser_firstname='$fname',tbluser_lastname='$lname' WHERE tbluser_userid='$id'");
         if($query){
+            
             $_SESSION['Username']=$uname;
             $_SESSION['Firstname']=$fname;
             $_SESSION['Lastname']=$lname;

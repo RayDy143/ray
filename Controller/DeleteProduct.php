@@ -4,7 +4,7 @@
     $pid=$_POST['ProductID'];
 
     $data["success"] = false;
-    $query=mysqli_query($conn,"UPDATE product SET Status='Deleted' WHERE ProductID='$pid'");
+    $query=mysqli_query($conn,"UPDATE ray_tblproduct SET tblproduct_status='Deleted' WHERE tblproduct_productid='$pid'");
     if($query){
         $data["success"] = true;
     }

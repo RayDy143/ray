@@ -6,17 +6,17 @@
     $newpass=$_POST['NewPassword'];
     $confirmpass=$_POST['ConfirmPassword'];
 
-    $query=mysqli_query($conn,"SELECT * FROM user where UserID='$userid'");
+    $query=mysqli_query($conn,"SELECT * FROM ray_tbluser where tbluser_userid='$userid'");
 
     $data['response']="";
     if(empty($currentpass)||empty($newpass)||empty($confirmpass)){
         $data['response']="All fields are required!";
     }else{
-        $query=mysqli_query($conn,"SELECT * FROM user where UserID='$userid'");
+        $query=mysqli_query($conn,"SELECT * FROM ray_tbluser where tbluser_userid='$userid'");
         $userdata=mysqli_fetch_assoc($query);
         if($currentpass==$userdata['Password']){
             if($newpass==$confirmpass){
-                $query=mysqli_query($conn,"UPDATE user SET Password='$newpass' where UserID='$userid'");
+                $query=mysqli_query($conn,"UPDATE ray_tbluser SET tbluser_password='$newpass' where tbluser_userid='$userid'");
                 if($query){
                     $data['response']="Password successfully changed!";
                 }

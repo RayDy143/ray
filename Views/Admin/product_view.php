@@ -38,15 +38,19 @@
                 <input type="hidden" class="center" id="txtUpdateProductID" name="ProductID"/>
             </div>
             <div class="row">
+                <span class="text-white">Product name</span>
                 <input type="text" class="center" id="txtUpdateProductName" placeholder="Product name" name="ProductName"/>
             </div>
             <div class="row">
+                <span class="text-white">Quantity</span>
                 <input type="number" class="center" id="txtUpdateQuantity" placeholder="Quantity" name="Quantity"/>
             </div>
             <div class="row">
+                <span class="text-white">Price ₱</span>
                 <input type="number" class="center" id="txtUpdatePrice" placeholder="Price" name="Price"/>
             </div>
             <div class="row">
+                <span class="text-white">Description</span>
                 <input type="text" class="center" id="txtUpdateDescription" placeholder="Description" name="Description"/>
             </div>
             <button type="submit" class="btn pink text-white center" name="btnSubmit">UPDATE</button>
@@ -93,11 +97,11 @@
                         responsive:true,
                         "bDestroy": true,
                         "columns": [
-                          { "data": "ProductID" },
-                          { "data": "ProductName" },
-                          { "data": "Description" },
+                          { "data": "tblproduct_productid" },
+                          { "data": "tblproduct_productname" },
+                          { "data": "tblproduct_description" },
                           { "mData": function (data, type, dataToSet) {
-                                return "<button style='padding:0px;margin:0px;width:50%;' class='text-white activate green btn edit' id="+ data.ProductID + ">EDIT</button><button style='padding:0px;margin:0px;width:50%;' class='text-white activate pink btn delete' class='delete' id="+ data.ProductID + ">DELETE</button>";
+                                return "<button style='padding:0px;margin:0px;width:50%;' class='text-white activate green btn edit' id="+ data.tblproduct_productid + ">EDIT</button><button style='padding:0px;margin:0px;width:50%;' class='text-white activate pink btn delete' class='delete' id="+ data.tblproduct_productid + ">DELETE</button>";
                             }}
 
                         ]
@@ -211,11 +215,11 @@
                 },
                 dataType:'json',
                 success:function(response) {
-                    $("#txtUpdateProductID").val(response.ProductID);
-                    $("#txtUpdateProductName").val(response.ProductName);
-                    $("#txtUpdateQuantity").val(response.Quantity);
-                    $("#txtUpdatePrice").val(response.Price);
-                    $("#txtUpdateDescription").val(response.Description);
+                    $("#txtUpdateProductID").val(response.tblproduct_productid);
+                    $("#txtUpdateProductName").val(response.tblproduct_productname);
+                    $("#txtUpdateQuantity").val(response.tblproduct_quantity);
+                    $("#txtUpdatePrice").val(response.tblproduct_price);
+                    $("#txtUpdateDescription").val(response.tblproduct_description);
                 }
             });
         });

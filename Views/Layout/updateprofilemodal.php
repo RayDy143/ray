@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <span class="text-white">Username</span>
-            <input id="txtUpdateProfileUsername" type="text" value="<?php echo $_SESSION['Username']; ?>" class="center" placeholder="Username" name="Username"/>
+            <input readonly id="txtUpdateProfileUsername" type="text" value="<?php echo $_SESSION['Username']; ?>" class="center" placeholder="Username" name="Username"/>
         </div>
         <div class="row">
             <span class="text-white">Firstname</span>

@@ -30,7 +30,9 @@
 
     $(document).on('keydown','input[type="number"]',function(e){
         if (!Number.isInteger(parseInt(e.key))) {
-            e.preventDefault();
+            if(e.keyCode!=8){
+                e.preventDefault();
+            }
         }
     })
 </script>

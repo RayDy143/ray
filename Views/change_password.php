@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=width-device,initial-scale=1.0">
-        <link rel="stylesheet" href="css/mystyle.css">
+        <link rel="stylesheet" href="../../css/mystyle.css">
 
         <title>Login</title>
     </head>
@@ -36,7 +36,7 @@
                         <input type="password" class="center" placeholder="Re-type new Password" name="ConfirmPassword"/>
                     </div>
                     <button type="submit" class="btn green text-white center" name="btnSubmit">CHANGE PASSWORD</button>
-                    <button type="button" onclick="window.location='index.php'" class="btn pink text-white center">CANCEL</button>
+                    <button type="button" onclick="window.location='../../index.php'" class="btn pink text-white center">CANCEL</button>
                 </form>
             </div>
         </main>
